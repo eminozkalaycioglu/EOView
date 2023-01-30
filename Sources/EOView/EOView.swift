@@ -20,14 +20,14 @@ public class EOView: UIView {
     }
     
     @IBInspectable
-    public var shadowColor: UIColor = .clear {
+    public var shadowColor: UIColor = .black {
         didSet {
             self.shadowView.layer.shadowColor = shadowColor.cgColor
         }
     }
     
     @IBInspectable
-    public var shadowOffset: CGSize = .zero {
+    public var shadowOffset: CGSize = .init(width: .zero, height: .zero) {
         didSet {
             self.shadowView.layer.shadowOffset = shadowOffset
         }
@@ -41,14 +41,14 @@ public class EOView: UIView {
     }
     
     @IBInspectable
-    public var shadowOpacity: CGFloat = .zero {
+    public var shadowOpacity: CGFloat = 1 {
         didSet {
             self.shadowView.layer.shadowOpacity = Float(shadowOpacity)
         }
     }
     
     @IBInspectable
-    public var cornerRadius: CGFloat = .zero {
+    public var cornerRadius: CGFloat = 8 {
         didSet {
             self.shadowView.layer.cornerRadius = cornerRadius
             self.layer.cornerRadius = cornerRadius
@@ -68,7 +68,6 @@ public class EOView: UIView {
     //MARK: Lifecycle methods
     public override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        print(#function)
         self.layer.masksToBounds = true
         guard !isShadowViewAdded else { return }
         self.superview?.insertSubview(shadowView, belowSubview: self)
