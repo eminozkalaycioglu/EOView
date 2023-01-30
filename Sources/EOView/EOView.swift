@@ -27,7 +27,7 @@ public class EOView: UIView {
     }
     
     @IBInspectable
-    public var shadowOffset: CGSize = .init(width: .zero, height: .zero) {
+    public var shadowOffset: CGSize = .init(width: 0, height: 0) {
         didSet {
             self.shadowView.layer.shadowOffset = shadowOffset
         }
